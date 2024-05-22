@@ -1,0 +1,65 @@
+<%- include('../header.ejs') %>
+
+    <!-- <h1 class="mt-5">admin dashbord</h1> -->
+
+    <div class="container-fluid gx-0 mt-5 pt-5">
+        <div class="container pb-4">
+
+            <table class=" mt-5 table table-bordered table-striped table-hover mt-5">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number </th>
+                        <th>status</th>
+                        <th>comment</th>
+                        <th></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% i =1 %>
+                    <% d.forEach((item)=>{ %>
+                        <tr>
+                            <td>
+                                <%= i++ %>
+                            </td>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%= item.email %>
+                            </td>
+                            <td>
+                                <%= item.mobile %>
+                            </td>
+                            <td>
+                                <%= item.status %>
+                            </td>
+                            <td>
+                                <form action="/update_approve/<%= item._id %>" method="post">
+                                    <textarea name="comment"></textarea>
+                            </td>
+                            <td>
+                                <button class="btn btn-info" type="submit" name="status"
+                                    value="approved">Approved</button>
+                                <button class="btn btn-info" type="submit" name="status"
+                                    value="rejected">Rejected</button>
+                                </form>
+                            </td>
+                            <td>
+                                <a href="/admin_view/<%= item._id %>" class="btn btn-info">View</a>
+                                <a href="/admin_edit/<%= item._id %>" class="btn btn-primary">Edit</a>
+                                <a href="/admin_delete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <%}) %>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- end -->
+
+
+        <%- include('../footer.ejs') %>

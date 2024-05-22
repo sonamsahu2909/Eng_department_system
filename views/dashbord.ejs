@@ -1,0 +1,276 @@
+<%- include('./header.ejs') %>
+
+  <!-- slider -->
+
+  <div class="carousel slide" data-bs-ride="carousel" id="z">
+
+    <div class="carousel-indicators ">
+
+      <button type="button" data-bs-target="#z" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#z" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#z" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#z" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#z" data-bs-slide-to="4"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active" data-bs-interval="4000">
+        <img src="https://mits-admission-portal.onrender.com/assets/images/banner1.jpg" class="w-100" height="700px"
+          alt="...">
+      </div>
+
+      <div class="carousel-item " data-bs-interval="4000">
+        <img src="https://web.mitsgwalior.in/images/Photo-Gallery/11.jpeg" class="w-100" height="700px" alt="...">
+      </div>
+
+      <div class="carousel-item " data-bs-interval="4000">
+        <img src="https://web.mitsgwalior.in/images/Photo-Gallery/8.jpeg" class="w-100" height="700px" alt="...">
+      </div>
+      <div class="carousel-item " data-bs-interval="4000">
+        <img src="https://web.mitsgwalior.in/images/Photo-Gallery/2.jpeg" class="w-100" height="700px" alt="...">
+      </div>
+      <div class="carousel-item " data-bs-interval="4000">
+        <img src="https://web.mitsgwalior.in/images/slider2/26jan2023.jpeg" class="w-100" height="700px" alt="...">
+      </div>
+      <div class="carousel-item " data-bs-interval="4000">
+        <img src="https://web.mitsgwalior.in/images/slider2/sai.jpeg" class="w-100" height="700px" alt="...">
+      </div>
+
+    </div><!--  carousel-inner  end-->
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#z" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#z" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div><!--carousel end-->
+  <!-- slider end -->
+
+  <div class="container mt-4 pt-3 text-center">
+    <h1 class="display-5"><b style="text-transform: uppercase !important;">Hello &nbsp;<%= n %></b></h1>
+    <h2 class="display-5 my-3"><b>REGISTER YOUR COURSE</b></h2>
+    <p class="mb-5">Course Registration means the official recording of a student's name to study a course or courses.
+    </p>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://mits-admission-portal.onrender.com/assets/images/card_image1.jpg" class="card-btech"
+            height="300px" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">B.tech</h3>
+            <p class="card-text">B.Tech is a professional undergraduate engineering degree</p>
+            <% if(b){ %>
+              <a href="/course_display" class="btn bg-primary1 text-white px-3">Display Btech</a>
+            <% } else { %>
+                <a href="javascript:;" class="btn bg-primary1 text-white px-3" data-bs-toggle="modal"data-bs-target="#btechModal">Register</a>
+            <% }%>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://mits-admission-portal.onrender.com/assets/images/card_image2.jpg" class="card-bca"
+            height="300px" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">BCA</h3>
+            <p class="card-text">BCA is a three-year Bachelor's Degree in Computer Application</p>
+            <button class="btn bg-primary1 text-white px-3" data-bs-toggle="modal"
+              data-bs-target="#bcaModal">Register</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://mits-admission-portal.onrender.com/assets/images/card_image3.jpg" class="card-mca"
+            height="300px" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">MCA</h3>
+            <p class="card-text">MCA is a professional post-graduation degree in computer science</p>
+            <button class="btn bg-primary1 text-white px-3" data-bs-toggle="modal"
+              data-bs-target="#McaModal">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- btech model -->
+
+  <div class="modal fade" id="btechModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Btech registration</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/course_insert" method="post" class="p-2">
+            <div class="mb-3">
+              <label>Name:</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label>Email</label>
+              <input class="form-control" placeholder="Enter Email" type="email" name="email" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label>Mobile Number</label>
+              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number"
+                required>
+            </div>
+            <div class="mb-3">
+              <label>Address</label>
+              <textarea class="form-control" id="address" name="address" rows="3"></textarea required>
+          </div>
+         <div class="mb-3">
+          <label>Gender</label> <br>
+          <input type="radio"  id="" name="gender" value="male" required> Male <br>
+
+          <input type="radio"  id="" name="gender" value="female" required> Female
+         </div>
+
+         <div class="mb-3">
+          <label>Qualifications</label> <br>
+          <select name="qualification" class="form-control" required>
+            <option value="0">Select</option>
+            <option value="10">10th</option>
+            <option value="12">12th</option>
+            <option value="degree">degree</option>
+          </select>
+         </div>
+
+         <div class="mb-3">
+          <label>Course</label> <br>
+          <input type="text" value="btech" name="course" class="form-control" readonly>
+         </div>     
+         <button type="submit" class="btn btn-secondary">Submit</button>
+
+        </form>  
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+<!-- bCA model -->
+
+<div class="modal fade" id="bcaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Btech registration</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/course_insert" method="post" class="p-2">
+          <div class="mb-3">
+            <label>Name:</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" placeholder="Enter Email" type="email" name="email" id="email" required> 
+          </div>
+          <div class="mb-3">
+            <label>Mobile Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required> 
+          </div>
+          <div class="mb-3">
+            <label>Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3"></textarea required>
+          </div>
+         <div class="mb-3">
+          <label>Gender</label> <br>
+          <input type="radio"  id="" name="gender" value="male" required> Male <br>
+
+          <input type="radio"  id="" name="gender" value="female" required> Female
+         </div>
+
+         <div class="mb-3">
+          <label>Qualifications</label> <br>
+          <select name="qualification" class="form-control" required>
+            <option value="0">Select</option>
+            <option value="10">10th</option>
+            <option value="12">12th</option>
+            <option value="degree">degree</option>
+          </select>
+         </div>
+
+         <div class="mb-3">
+          <label>Course</label> <br>
+          <input type="text" value="bca" name="course" class="form-control" readonly>
+         </div>     
+         
+         <button type="submit" class="btn btn-secondary">Submit</button>
+
+        </form>  
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MCA model -->
+
+<div class="modal fade" id="McaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Btech registration</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/course_insert" method="post" class="p-2">
+          <div class="mb-3">
+            <label>Name:</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" placeholder="Enter Email" type="email" name="email" id="email" required> 
+          </div>
+          <div class="mb-3">
+            <label>Mobile Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number" required> 
+          </div>
+          <div class="mb-3">
+            <label>Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3"></textarea required>
+          </div>
+         <div class="mb-3">
+          <label>Gender</label> <br>
+          <input type="radio"  id="" name="gender" value="male" required> Male <br>
+
+          <input type="radio"  id="" name="gender" value="female" required> Female
+         </div>
+
+         <div class="mb-3">
+          <label>Qualifications</label> <br>
+          <select name="qualification" class="form-control" required>
+            <option value="0">Select</option>
+            <option value="10">10th</option>
+            <option value="12">12th</option>
+            <option value="degree">degree</option>
+          </select>
+         </div>
+
+         <div class="mb-3">
+          <label>Course</label> <br>
+          <input type="text" value="mca" name="course" class="form-control" readonly>
+         </div>     
+         
+         <button type="submit" class="btn btn-secondary">Submit</button>
+
+        </form>  
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+
+<%- include('./footer.ejs')  %>

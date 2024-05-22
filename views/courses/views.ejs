@@ -1,0 +1,36 @@
+<%- include('../header.ejs') %>
+
+    <!-- table start -->
+
+    <div class="container-fluid mb-4 pb-4 mt-5 pt-5">
+        <div class="container">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Qualification</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>                  
+                        <tr>
+                            <td><%= d._id %></td>
+                            <td><%= d.name %></td>
+                            <td><%= d.email %> </td>
+                            <td><%= d.mobile %></td> 
+                            <td><%= d.address %></td>                                
+                            <td><%= d.gender %></td> 
+                            <td><%= d.qualification %></td> 
+                            <td><%= d.course %></td> 
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <%- include('../footer.ejs') %>

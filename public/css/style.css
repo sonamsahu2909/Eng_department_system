@@ -1,0 +1,45 @@
+.bg-primary1{
+    background: #9A616D !important;
+}
+.btn-outline-secondary{
+    color: #9A616D !important ;
+    border: 2px solid #9A616D !important;
+}
+.bg-secondary1{
+    background:#9a616dc7 !important;
+}
+
+/* nav bar */
+.navbar{
+    background-color: #000000c2 !important;
+    cursor: pointer;
+    }
+
+    .navbar-nav li{
+        padding: 0 30px;
+    }
+    .navbar-nav li a{
+        color: #fff !important;
+        font-weight: 800px;
+        font-size: 24px;
+        text-decoration: none !important;
+    }
+
+    .web-logo{
+        width: 130px;
+    
+    }
+   
+
+    /* login & register css */
+
+@media(max-width: 775px){
+    .why{
+        display: none ;
+    }
+}
+@media(max-width: 390px){
+    .why{
+        display: none;
+    }
+}

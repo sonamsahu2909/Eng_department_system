@@ -1,0 +1,54 @@
+<%- include('../header.ejs') %>
+
+    <!-- table start -->
+
+    <div class="container-fluid mb-4 pb-4 mt-5 pt-5">
+        <div class="container pt-4 ">
+            <h1>edit Page</h1>
+            <form action="/admin_update/<%= d._id %>" method="post" class="p-2">
+                <div class="mb-3">
+                    <label>Name:</label>
+                    <input type="text" name="name" class="form-control" value="<%= d.name %>" required>
+                </div>
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input class="form-control" placeholder="Enter Email" type="email" name="email" id="email" value="<%= d.email %>" required>
+                </div>
+                <div class="mb-3">
+                    <label>Mobile Number</label>
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile Number"
+                    value="<%= d.mobile %>"   required>
+                </div>
+                <div class="mb-3">
+                    <label>Address</label>
+                    <textarea class="form-control" id="address" name="address" rows="3"><%= d.address %></textarea required>
+              </div>
+             <div class="mb-3">
+              <label>Gender</label> <br>
+              <input type="radio"  id="" name="gender" value="male" <%= d.gender=='male'?'checked':'' %>> Male <br>
+    
+              <input type="radio"  id="" name="gender" value="female" <%= d.gender=='female'?'checked':'' %>> Female
+             </div>
+    
+             <div class="mb-3">
+              <label>Qualifications</label> <br>
+              <select name="qualification" class="form-control" required>
+                <option value="0">Select</option>
+                <option value="10" <%= d.qualification =='10'?'selected':'' %>>10th</option>
+                <option value="12"<%= d.qualification =='12'?'selected':'' %>>12th</option>
+                <option value="degree" <%= d.qualification =='degree'?'selected':'' %>>degree</option>
+              </select>
+             </div>
+    
+             <div class="mb-3">
+              <label>Course</label> <br>
+              <input type="text" value="btech" name="course" class="form-control" readonly>
+             </div>     
+             
+             <button type="update" class="btn btn-secondary">Submit</button>
+    
+            </form>
+        </div>
+    </div>
+
+    <%- include('../footer.ejs') %>
